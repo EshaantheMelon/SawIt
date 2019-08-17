@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<!-
+ *This open source repository was modified for use in a Palm Oil Traceabilty Project by Eshaan Menon
+ * No credit is taken other than modifications to the Hyperledger Sawtooth Supply Chain repository and Tap the Boat Open Source Project 
+ * Modifications include interface developments, applicable changes to functions and utility based on use case
+ * More information available in this projects README on GitHub
+ * ->
+<html>
+
+<HEAD>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <TITLE>I Sawit</TITLE>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://code.createjs.com/createjs-2015.11.26.min.js" charset="UTF-8"></script>
+  <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+  <script type="text/javascript" src="js/audiosynth.js"></script>
+
+  <style>
+    body,
+    html {
+      background: #fff!important;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      width: 375px;
+      z-index: 4;
+    }
+
+    canvas{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+    *{
+      box-sizing: border-box;}
+
+    #score {
+      float: right;
+      width: 40px;
+      text-align: center;
+      line-height: 40px;
+      font-size: 20px;
+    }
+
+    .background {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    #Container {
+      height: 667px;
+      width: 375px;
+      background-color: #28A745;;
+      color: #fff;
+      position: relative;
+      float:left;
+      font-family: "Lato";
+      text-transform: uppercase;
+    }
+
+
+    #Container img{
+      position: relative;
+      z-index: 1;
+      display:none;
+    }
+
+    #Container h1, h2{
+      font-size:80px;
+      text-align:center;
+      color: #fff;
+      margin-top: 80px;
+    }
+    h2{
+      margin-top: 0px;
+      font-size: 42px;
+    }
+
+    p{font-size: 16px; width: 80%; display: block; margin: 0 auto;
+    text-transform: none}
+    #gameContainer input{
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+      border: 4px solid #313131;
+      height: 60px;
+      padding: 2px 8px;
+      font-size: 18px;
+      color: #111;
+      border-radius: 4px;
+
+    }
+    .btn:hover,
+    .btn:focus{
+      background: #222;
+      cursor: pointer;
+    }
+    .btn{
+      width: 80px;
+      height: 60px;
+      background: #313131;
+      color: #f9f9f9;
+      border:0;
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 20px;
+      border-radius: 4px;
+      font-size: 18px;
+      display: block;
+      box-sizing: border-box;
+    }
+    #Container focus,
+    #Container hover{
+      box-shadow: 0px;
+    }
+
+    .backgroundImage{
+      width:100%;
+      height:100%;
+      background-size: cover;
+    }
+    #leaderboard{
+      margin-top: 80px;
+      background: #9C7C17;
+    }
+    #leaderboard:hover,
+    #leaderboard:focus{
+      background: #866a14 ;
+    }
+    #b1{ background-image: url("images/satellite11.jpg");}
+    #b2{ background-image: url("images/satellite2.jpg");}
+    #b3{ background-image: url("images/satellite3.jpg");}
+    #b4{ background-image: url("images/satellite4.jpg");}
+    #b5{ background-image: url("images/satellite5.jpg");}
+    #b6{ background-image: url("images/satellite6.jpg");}
+    #b7{ background-image: url("images/satellite7.jpg");}
+    #b8{ background-image: url("images/satellite8.jpg");}
+    #b9{ background-image: url("images/satellite9.jpg");}
+    #b10{ background-image: url("images/satellite10.jpg");}
+
+
+}
+  </style>
+</head>
+
+<body >
+  <div id="Container">
+    <h1>3</h1>
+    <h2>Plots tapped</h2>
+    <p> Looks like you've found a real plantation we dont recognise!</p>
+	<br>
+	<p>	We'll check on that and keep you updated </p>
+	<br>
+		<p> 
+		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"><br>
+		<input type="checkbox" class="form-check-input" id="exampleCheck1">
+		<label class="form-check-label" for="exampleCheck1">Subscribe to our newsletter?</label>
+	  <a href="index.html"><button class="btn btn-primary">Submit</button><a> </p>
+	
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<!-
+ *This open source repository was modified for use in a Palm Oil Traceabilty Project by Eshaan Menon
+ * No credit is taken other than modifications to the Hyperledger Sawtooth Supply Chain repository and Tap the Boat Open Source Project 
+ * Modifications include interface developments, applicable changes to functions and utility based on use case
+ * More information available in this projects README on GitHub
+ * ->
+<html>
+
+<HEAD>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <TITLE>I SawIt</TITLE>
+
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://code.createjs.com/createjs-2015.11.26.min.js" charset="UTF-8"></script>
+  <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+  <script type="text/javascript" src="js/audiosynth.js"></script>
+
+  <style>
+    body,
+    html {
+      background: #fff!important;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      width: 375px;
+      z-index: 4;
+    }
+
+    canvas{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    #score {
+      float: right;
+      width: 40px;
+      text-align: center;
+      line-height: 40px;
+      font-size: 20px;
+    }
+
+    .background {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    #Container {
+      height: 667px;
+      width: 375px;
+      background-color: #313131;
+    }
+    #Container img{
+      position: relative;
+      z-index: 1;
+    }
+    .backgroundImage{
+      width:100%;
+      height:100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display:none;
+    }
+    #b1{ background-image: url("images/satellite12.jpg");}
+    #b2{ background-image: url("images/satellite2.jpg");}
+    #b3{ background-image: url("images/satellite3.jpg");}
+    #b4{ background-image: url("images/satellite4.jpg");}
+    #b5{ background-image: url("images/satellite5.jpg");}
+    #b6{ background-image: url("images/satellite6.jpg");}
+    #b7{ background-image: url("images/satellite7.jpg");}
+    #b8{ background-image: url("images/satellite8.jpg");}
+    #b9{ background-image: url("images/satellite9.jpg");}
+    #b10{ background-image: url("images/satellite10.jpg");}
+
+
+}
+  </style>
+</head>
+
+<body onload="init();">
+  <div id="Container">
+    <div id="b1" class="backgroundImage"></div>
+    <div id="b2" class="backgroundImage"></div>
+    <div id="b3" class="backgroundImage"></div>
+    <div id="b4" class="backgroundImage"></div>
+    <div id="b5" class="backgroundImage"></div>
+    <div id="b6" class="backgroundImage"></div>
+    <div id="b7" class="backgroundImage"></div>
+    <div id="b8" class="backgroundImage"></div>
+    <div id="b9" class="backgroundImage"></div>
+    <div id="b10" class="backgroundImage"></div>
+    <div id="b11" class="backgroundImage"></div>
+
+
+    <div class="topbar">
+      <div id="score">
+        0
+      </div>
+    </div>
+    <canvas id="demoCanvas" width="375" height="667"></canvas>
+    <script>
+
+
+      function updateScore(score) {
+        window.score += 1;
+        console.log(window.score);
+        $("#score").text(window.score);
+
+      }
+
+      function handleClick(event, stage, sprite) {
+
+      }
+
+      function init() {
+        var count = 6;
+        var countdown = setInterval(function(){
+          $("p.countdown").html(count + " seconds remaining!");
+          if (count == 0) {
+            clearInterval(countdown);
+            window.open('result.html', "_self");
+          }
+          count--;
+        }, 1000);
+
+        createjs.MotionGuidePlugin.install();
+        var piano = Synth.createInstrument('piano');
+        window.background = 1;
+        $("#b1").show(0);
+
+        var bar = {
+          x: 375,
+          y: 10,
+          oldx: 0,
+          oldy: 0
+        };
+        function randomSprite() {
+          var sprite = new createjs.Shape();
+          var colors = ["rgba(230, 126, 34, 0.75)", "rgba(46, 204, 113, 0.75)", "rgba(39, 174, 96, 0.75)",
+            "rgba(52, 152, 219, 0.75)", "rgba(155, 89, 182, 0.75)", "rgba(142, 68, 173, 0.75)", "rgba(231, 76, 60, 0.75)"
+          ];
+          var tones = ["A", "B", "C", "D", "E", "F", "G"];
+          var colorindex = Math.floor(Math.random() * colors.length);
+          var color = colors[colorindex];
+          var tone = tones[colorindex];
+          window.tone = tone;
+          sprite.graphics.beginFill(color).drawRect(0, 0, 95, 157);
+          sprite.x = Math.floor(Math.random() * 220) + 75;
+          sprite.y = Math.floor(Math.random() * 500) + 75;
+          sprite.rotation = Math.floor(Math.random() * 360) + 1;
+          stage.addChild(sprite);
+          stage.update();
+          return sprite;
+        }
+
+        createjs.Tween.get(bar).to({guide:{ path:[0,0, 0,0,375,0, ] }},7000);
+         // Visualizing the line
+
+        createjs.Ticker.addEventListener("tick", tick);
+
+        var stage = new createjs.Stage("demoCanvas");
+        //var background = new createjs.Bitmap("images/satellite1.jpg");
+
+
+
+
+
+        //var scale = 667 / 200;
+        //background.scaleX = scale;
+        //background.scaleY = scale;
+        window.score = 0;
+        var countBar = new createjs.Shape();
+
+        var rectangle = new createjs.Shape();
+        rectangle.graphics.beginFill("rgba(0,0,0,0.05)").drawRect(0, 0, 375, 667);
+        //stage.addChild(background);
+        stage.addChild(rectangle);
+        stage.addChild(countBar);
+        stage.update();
+        var sprite = randomSprite();
+        stage.addEventListener("click", function() {
+          //Convert global x, y to local see example from the website
+          var pt = sprite.globalToLocal(event.clientX, event.clientY);
+          var shotsFired = sprite.hitTest(pt.x, pt.y);
+          if (shotsFired == true) {
+            console.log("First Blood!");
+            piano.play(window.tone, 4, 1); // plays C4 for 2s using the 'piano' sound profile
+            updateScore();
+          };
+          var randImage = Math.floor((Math.random() * 10) + 1);
+          //$('#gameContainer').css({"background-image": "url(images/satellite"+randImage+".jpg)"});
+          stage.removeChild(sprite);
+          stage.update();
+          var randImage = Math.floor((Math.random() * 10) + 1);
+          while(randImage == window.background) {
+              console.log("while")
+              randImage = Math.floor((Math.random() * 10) + 1);
+          }
+          console.log(window.background);
+          $("#b"+window.background).hide(0);
+          window.background = randImage;
+          console.log(window.background);
+
+          $("#b"+window.background).show(0);
+
+          sprite = randomSprite(stage);
+        });
+
+        function tick() {
+          countBar.graphics.setStrokeStyle(10, 'square', 'square').beginStroke("#f1c40f").curveTo( bar.x, bar.y, bar.oldx, bar.oldy);
+          stage.update();
+          bar.x = bar.oldx;
+          bar.y = bar.oldy;
+        };
+      }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+</body>
+
+</html>
