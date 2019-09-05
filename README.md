@@ -1,6 +1,3 @@
-
-![SawIt, powered by Hyperledger]
-
 # SawIt application
 SawIt is a combination of Open Source Project Tap-A-Boat and a modified version of the Hyperledger Sawtooth Supply Chain Sample.
 The Progressive Web Application may be found in the asset_client folder and is a modification of AssetTrack.
