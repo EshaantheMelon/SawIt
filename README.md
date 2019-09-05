@@ -1,5 +1,5 @@
 
-![Hyperledger Sawtooth](images/sawtooth_logo_light_blue-small.png)
+![SawIt, powered by Hyperledger](asset_client\public\192.png)
 
 # SawIt application
 SawIt is a combination of Open Source Project Tap-A-Boat and a modified version of the Hyperledger Sawtooth Supply Chain Sample.
@@ -16,15 +16,6 @@ Future developments include using the tagged images of potential plantations to 
 This project was developed with open source technology and is available for reuse.
 
 Please find the installation instructions and details about the Hyperledger Sawtooth framework below:
-# Sawtooth Supply Chain
-
-This is a distributed application to help you trace the provenance and other
-contextual information of any asset. It can be used as-is or customized for
-different use cases. This distributed application runs on top of Hyperledger
-Sawtooth, an enterprise blockchain. To learn more about Hyperledger Sawtooth
-please see its
-[sawtooth-core repo](https://github.com/hyperledger/sawtooth-core) or its
-[published docs](https://sawtooth.hyperledger.org/docs/).
 
 ## Contents
 
