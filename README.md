@@ -12,6 +12,8 @@ Future developments include using the tagged images of potential plantations to 
 
 This project was developed with open source technology and is available for reuse.
 
+Application can be run on docker with docker-compose up in the root directory, the app can be found at http://localhost:8021 when done
+
 Please find the installation instructions and details about the Hyperledger Sawtooth framework below:
 
 ## Contents
