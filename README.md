@@ -1,5 +1,5 @@
 
-![SawIt, powered by Hyperledger](asset_client\public\192.png)
+![SawIt, powered by Hyperledger]
 
 # SawIt application
 SawIt is a combination of Open Source Project Tap-A-Boat and a modified version of the Hyperledger Sawtooth Supply Chain Sample.
